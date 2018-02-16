@@ -212,11 +212,13 @@ exec_always xset -dpms
 exec_always setxkbmap de -variant neo
 exec_always xrandr --output DVI-I-1 --auto --output HDMI-0 --primary --auto --left-of DVI-I-1
 bindsym $mod+F12 exec xrandr --output HDMI-0 --primary --auto --output DVI-I-1 --off
+bindsym $mod+F11 exec xrandr --output HDMI-0 --off --output DVI-I-1 --auto
 exec compton
 exec blueman-applet
 
-exec_always feh --bg-fill ~/store/documents/wallpaper/darkwood.jpg
+exec_always feh --randomize --bg-fill ~/store/pictures/wallpaper/*
 exec dropboxd
 exec firefox
+exec seafile-applet
 exec thunderbird
 exec --no-startup-id i3-msg workspace 1
