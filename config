@@ -160,6 +160,7 @@ for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enabe
 
+for_window [title="^SVP - Control Panel"] floating disable
 
 
 # reload the configuration file
@@ -212,6 +213,8 @@ exec_always xset -dpms
 exec_always setxkbmap de -variant neo
 exec_always xrandr --output DVI-I-1 --auto --output HDMI-0 --primary --auto --left-of DVI-I-1
 bindsym $mod+F12 exec xrandr --output HDMI-0 --primary --auto --output DVI-I-1 --off
+bindsym $mod+F10 exec nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
+
 bindsym $mod+F11 exec xrandr --output HDMI-0 --off --output DVI-I-1 --auto
 exec compton
 exec blueman-applet
