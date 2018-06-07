@@ -1,0 +1,38 @@
+#!/bin/bash
+
+KEYMAP_DIRECTORY="/usr/share/kbd/keymaps"
+
+# Aprrently localectl status does not update on keymap change. However, setxkbmap does.
+XKB_OUTPUT=$(setxkbmap -query)
+VC_KEYMAP=$(echo "${XKB_OUTPUT}" | grep "layout" | awk -F ':' '{print $2}' | tr -d ' ')
+VC_VARIANT=$(echo "${XKB_OUTPUT}" | grep "variant" | awk -F ':' '{print $2}' | tr -d ' ')
+
+# Keymap has not been specific, so it's not configured properly
+if [[ "${VC_KEYMAP}" == "" ]]; then
+  exit 1
+fi
+
+KEYMAP="${VC_KEYMAP}"
+
+if [[ "${VC_VARIANT}" != "" ]]; then
+  KEYMAP="${KEYMAP}-${VC_VARIANT}"
+fi
+
+
+
+if [[ $BLOCK_BUTTON == 1 ]]; then
+	if [[ "${KEYMAP}" == "de" ]]; then
+		setxkbmap -layout de -variant neo
+		echo "neo"
+	else
+		setxkbmap -layout de
+		echo "de"
+	fi
+else
+	if [[ "${VC_VARIANT}" ]]; then
+	  echo "${VC_VARIANT}"
+	elif [[ "${KEYMAP}" ]]; then
+	  echo "${KEYMAP}"
+	fi
+fi
+
