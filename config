@@ -30,7 +30,7 @@ font pango:monospace 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt -cd "`xcwd`"
+bindsym $mod+Return exec kitty -d "`xcwd`"
 
 #screenshot
 bindsym --release $mod+Print exec scrot -s ~/store/pictures/screenshot.png && xclip -selection clipboard -t image/png -i ~/store/pictures/screenshot.png
@@ -220,6 +220,7 @@ exec compton
 exec blueman-applet
 
 exec_always feh --randomize --bg-fill ~/store/pictures/wallpaper/*
+exec redshift
 exec dropboxd
 exec firefox
 exec seafile-applet
