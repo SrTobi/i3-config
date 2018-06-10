@@ -105,6 +105,7 @@ set $steam "8:Steam"
 set $mail "9:Mail"
 
 # switch to workspace
+bindsym $mod+dead_circumflex workspace $web
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -117,6 +118,7 @@ bindsym $mod+9 workspace $mail
 bindsym $mod+0 workspace $web
 
 # move focused container to workspace
+bindsym $mod+Shift+dead_circumflex move container to workspace $web
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
