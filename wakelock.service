@@ -1,4 +1,5 @@
 #file /etc/systemd/system/wakelock.service
+# systemctl enable wakelock.service
 
 [Unit]
 Description=Lock the screen on resume from suspend
