@@ -228,8 +228,17 @@ bindsym $mod+F12 exec xrandr --output HDMI-0 --primary --auto --output DVI-I-1 -
 bindsym $mod+F10 exec nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
 
 bindsym $mod+F11 exec xrandr --output HDMI-0 --off --output DVI-I-1 --auto
+
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+
+
+
+
+
 exec compton
 #exec blueman-applet
+
 
 exec_always feh --randomize --bg-fill ~/store/pictures/wallpaper/*
 exec redshift
