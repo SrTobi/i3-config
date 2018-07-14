@@ -234,7 +234,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 
 
-
+bindsym XF86Tools exec xinput --enable 12
+exec xinput --disable 12
 
 exec compton
 #exec blueman-applet
