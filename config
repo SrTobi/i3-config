@@ -238,6 +238,6 @@ exec dropboxd
 exec firefox
 exec discord
 exec seafile-applet
-exec thunderbird
+exec mailspring
 exec nm-applet
 exec --no-startup-id i3-msg workspace 1
