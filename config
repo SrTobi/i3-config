@@ -147,9 +147,11 @@ workspace $mail output $monitor_master
 workspace 1 output $monitor_master
 
 # predefined windows
+# use 'xprop' to determine class
 
 assign [class="Firefox"] $web
 assign [class="Thunderbird"] $mail
+assign [class="Mailspring"] $mail
 assign [class="Steam"] $steam
 assign [class="discord"] $discord
 
