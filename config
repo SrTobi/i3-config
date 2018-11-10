@@ -44,6 +44,9 @@ bindsym $mod+Escape kill
 set $roficmd exec rofi -show run -opacity "85" -bg "$bg-color"
 bindsym $mod+a $roficmd
 bindsym $mod+BackSpace $roficmd
+bindsym $mod+Shift+Return exec echo "" | rofi -dmenu -p "Search:" | xargs -I{} xdg-open https://www.google.de/search?q={}
+bindsym $mod+Shift+BackSpace exec echo "" | rofi -dmenu -p "Translate:" | xargs -I{} xdg-open https://de-en.dict.cc/?s={}
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
