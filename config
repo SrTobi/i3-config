@@ -223,7 +223,7 @@ exec_always xset s off
 exec_always xset -dpms
 
 exec_always setxkbmap de -variant neo
-exec_always xrandr --output DVI-I-1 --auto --output HDMI-0 --primary --auto --left-of DVI-I-1
+# exec_always xrandr --output DVI-I-1 --auto --output HDMI-0 --primary --auto --left-of DVI-I-1
 bindsym $mod+F12 exec xrandr --output HDMI-0 --primary --auto --output DVI-I-1 --off
 bindsym $mod+F10 exec nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
 
