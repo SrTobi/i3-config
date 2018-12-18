@@ -1,2 +1,10 @@
 #!/usr/bin/sh
+
+# delete all keys from ssh-agent
+SSH_TMP_PATH="/tmp/ssh-agent-store/$USER-ssh.things"
+if [[ -f "$SSH_TMP_PATH" ]]; then
+    eval "$(<$SSH_TMP_PATH)" > /dev/null
+	ssh-add -D
+fi
+
 i3lock -B 6
