@@ -222,9 +222,12 @@ bar {
 exec_always xset s off
 exec_always xset -dpms
 
+exec_always xinput --set-prop 16 281 1
+exec libinput-gestures-setup start
+
 exec_always setxkbmap de -variant neo
 # exec_always xrandr --output DVI-I-1 --auto --output HDMI-0 --primary --auto --left-of DVI-I-1
-bindsym $mod+F12 exec xrandr --output HDMI-0 --primary --auto --output DVI-I-1 --off
+bindsym $mod+F12 exec xrandr --output eDP1 --off --output DP1 --mode 2560x1440
 bindsym $mod+F10 exec nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
 
 bindsym $mod+F11 exec xrandr --output HDMI-0 --off --output DVI-I-1 --auto
@@ -234,8 +237,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 
 
-bindsym XF86Tools exec xinput --enable 12
-exec xinput --disable 12
+#bindsym XF86Tools exec xinput --enable 12
+#exec xinput --disable 12
 
 exec compton
 #exec blueman-applet
