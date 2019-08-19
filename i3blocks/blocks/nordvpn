@@ -1,0 +1,40 @@
+#!/bin/bash
+STATUS_TEXT=$(nordvpn status)
+STATUS=$(echo "$STATUS_TEXT" | grep "Status:" | awk -F 'Status: ' '{print $2}')
+
+if [[ "$STATUS" == "Connected" ]]; then
+    COUNTRY=$(echo "$STATUS_TEXT" | grep "Country:" | awk -F 'Country: ' '{print $2}')
+    CITY=$(echo "$STATUS_TEXT" | grep "City:" | awk -F 'City: ' '{print $2}')
+    
+    if [[ $BLOCK_BUTTON == 1 ]]; then
+        nordvpn disconnect &>> /dev/null &
+        echo "disconnecting"
+        echo "stop"
+        echo "#FFFF00"
+    else
+        echo "$CITY ($COUNTRY)"
+        echo "vpn"
+        echo "#00FF00"
+    fi
+    
+elif [[ "$STATUS" == "Connecting" ]]; then
+    echo "connecting"
+    echo "start"
+    echo "#FFFF00"
+elif [[ "$STATUS" == "Disconnected" ]]; then
+    if [[ $BLOCK_BUTTON == 1 ]]; then
+        nordvpn connect &>> /dev/null &
+        echo "connecting"
+        echo "stop"
+        echo "#FFFF00"
+    else
+        echo "no vpn"
+        echo "no vpn"
+        echo "#FF0000"
+    fi
+else
+    echo "vpn unknown"
+    echo "#FF0000"
+fi
+
+exit 0
