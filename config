@@ -213,10 +213,7 @@ bindsym $mod+Home exec "~/.config/i3/run-i3lock"
 # finds out, if available)
 bar {
 	strip_workspace_numbers yes
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	colors {
-#		background $bg-color
-	}
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
 }
 
 exec_always xset s off
