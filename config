@@ -222,7 +222,7 @@ bar {
 exec_always xset s off
 exec_always xset -dpms
 
-exec_always xinput --set-prop 16 281 1
+exec_always xinput --set-prop 'SYNA2393:00 06CB:7A13 Touchpad' 'libinput Tapping Enabled' 1
 exec libinput-gestures-setup start
 
 exec_always setxkbmap de -variant neo
