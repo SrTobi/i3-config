@@ -246,7 +246,7 @@ exec compton
 
 exec_always feh --randomize --bg-fill ~/store/pictures/wallpaper/*
 exec redshift
-exec dropboxd
+exec dropbox
 exec firefox
 exec discord
 exec seafile-applet
