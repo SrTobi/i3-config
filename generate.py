@@ -63,8 +63,16 @@ def generate(sourcepath, targetpath):
             elif printLines:
                 output.append(line)
         
+    import os
+    import stat
+
+    if os.path.isfile(targetpath):
+        os.chmod(targetpath, stat.S_IWRITE)
+
     with open(targetpath, "w") as file:
         file.writelines(output)
+ 
+    os.chmod(targetpath, stat.S_IREAD | stat.S_IRGRP | stat.S_IROTH)
 
 print("name = " + nodename)
 print("islaptop = " + str(vars["laptop"]))
