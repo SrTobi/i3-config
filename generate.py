@@ -6,7 +6,7 @@ import re
 nodename = platform.node()
 
 laptops = ["jetb", "thinky"]
-towers = []
+towers = ["cube"]
 
 
 vars = { name: (nodename == name) for name in laptops + towers }
