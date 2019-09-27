@@ -102,8 +102,13 @@ bindsym $mod+u focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+!if cube
+set $monitor_master DVI-I-1
+set $monitor_slave DP-1
+!else
 set $monitor_master HDMI-0
 set $monitor_slave DVI-I-1
+!endif
 set $web "0:Web"
 set $discord "7:Discord"
 set $steam "8:Steam"
@@ -225,11 +230,17 @@ exec libinput-gestures-setup start
 !endif
 
 exec_always setxkbmap de -variant neo
+
 # exec_always xrandr --output DVI-I-1 --auto --output HDMI-0 --primary --auto --left-of DVI-I-1
+!if cube
+exec_always xrandr --dpi 85 --output DP-1 --auto --output DVI-I-1 --auto --primary --left-of DP-1
+
 bindsym $mod+F12 exec xrandr --output eDP1 --off --output DP1 --mode 2560x1440
 bindsym $mod+F10 exec nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
 
 bindsym $mod+F11 exec xrandr --output HDMI-0 --off --output DVI-I-1 --auto
+!endif
+
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
