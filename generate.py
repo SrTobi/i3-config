@@ -8,7 +8,6 @@ nodename = platform.node()
 laptops = ["jetb", "thinky"]
 towers = []
 
-assert nodename in laptops + towers
 
 vars = { name: (nodename == name) for name in laptops + towers }
 
@@ -59,6 +58,7 @@ def generate(sourcepath, targetpath):
                     assert not negate and varname == ""
                     assert cur != ""
                     printLines = True
+                    cmd = ""
                 cur = cmd
             elif printLines:
                 output.append(line)
@@ -76,6 +76,8 @@ def generate(sourcepath, targetpath):
 
 print("name = " + nodename)
 print("islaptop = " + str(vars["laptop"]))
+
+assert nodename in laptops + towers
 
 generate("config.tmpl", "config")
 generate("i3blocks.conf.tmpl", "i3blocks.conf")
