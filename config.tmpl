@@ -248,6 +248,12 @@ exec dropbox
 exec firefox
 exec discord
 exec seafile-applet
-#exec thunderbird
 exec nm-applet
 exec --no-startup-id i3-msg workspace 1
+
+# start email program
+#exec thunderbird
+!if cube
+exec mailspring
+!endif
+
